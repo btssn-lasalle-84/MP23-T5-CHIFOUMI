@@ -1,14 +1,38 @@
-TARGET = 
+TARGET = chifoumi.out
+MAIN = main
+JOUEUR = joueur
+PARTIE = partie
+HISTORIQUE = historique
+IHM = ihm
+
 SOURCES := $(wildcard *.cpp)
 HEADERS := $(wildcard *.h)
 
 CFLAGS = -std=c++11 -Wall -I.
-CXX = g++ $(CFLAGS) -c 
-LD = g++
+CXX = g++ $(CFLAGS) -c
+LD = g++ -o
 RM = rm -f
+LDFLAGS = 
 
-# TODO
+all: $(TARGET)
 
+$(TARGET): $(MAIN).o $(JOUEUR).o $(PARTIE).o $(HISTORIQUE).o $(IHM).o
+	$(LD) $@ $(LDFLAGS) $^
+
+$(MAIN).o: $(MAIN).cpp
+	$(CXX) $(CFLAGS) $^
+
+$(JOUEUR).o: $(JOUEUR).cpp
+	$(CXX) $(CFLAGS) $^
+
+$(PARTIE).o: $(PARTIE).cpp
+	$(CXX) $(CFLAGS) $^
+
+$(HISTORIQUE).o: $(HISTORIQUE).cpp
+	$(CXX) $(CFLAGS) $^
+
+$(IHM).o: $(IHM).cpp
+	$(CXX) $(CFLAGS) $^
 
 .PHONY: check cppcheck format clean cleanall
 
