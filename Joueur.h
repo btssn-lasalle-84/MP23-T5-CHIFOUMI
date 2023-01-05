@@ -5,15 +5,15 @@
 
 class Joueur
 {
-    private:
+  private:
     std::string pseudo;
 
-    public:
+  public:
     Joueur();
     Joueur(std::string pseudo);
 
     std::string getPseudo() const;
-    void setPseudo(std::string pseudo);
+    void        setPseudo(std::string pseudo);
 };
 
 #endif // JOUEUR_H
