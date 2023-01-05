@@ -18,3 +18,7 @@ void Partie::setNbParties(unsigned int nbParties)
 {
     this->nbParties = nbParties;
 }
+
+void Partie::demarrer()
+{
+}
