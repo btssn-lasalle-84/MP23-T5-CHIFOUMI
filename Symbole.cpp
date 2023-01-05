@@ -4,7 +4,7 @@ Symbole::Symbole()
 {
 }
 
-Symbole::Symbole(unsigned int symbole) : symbole(symbole)
+Symbole::Symbole(unsigned int signeMain) : signeMain(signeMain)
 {
 }
 

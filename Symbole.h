@@ -10,11 +10,11 @@
 class Symbole
 {
   private:
-    unsigned int sybole;
+    unsigned int signeMain;
 
   public:
     Symbole();
-    Symbole(unsigned int sybole);
+    Symbole(unsigned int signeMain);
     unsigned int getSymbole() const;
     enum Symboles
     {
