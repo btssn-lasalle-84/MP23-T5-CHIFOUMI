@@ -49,15 +49,13 @@ void IHM::menuPrincipal()
     )"  << std::endl;
 }
 
-/*void demarrerPartie()
+void demarrerPartie()
 {
-        std::cout << R"(
-            Tapez votre pseudo :
-            )"  << std::endl;
+    std::cout << R"(Tapez votre pseudo :)" << std::endl;
+    Joueur joueur;
 
-        std::cin >> joueur.pseudo >> std::endl;
+    //std::cin >> ;
 
-        std::cout << R"(
-            Parfait )" << joueur.pseudo << ", la partie va commencer..." <<
-std::endl; sleep(3);
-}*/
+    std::cout << R"(Parfait )" << joueur.getPseudo()
+              << ", la partie va commencer..." << std::endl;
+}
