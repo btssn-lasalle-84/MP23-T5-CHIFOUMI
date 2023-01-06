@@ -29,5 +29,4 @@ void Partie::demarrerPartie()
     std::cout << " Pierre [1]" << std::endl;
     std::cout << "Feuille [2]" << std::endl;
     std::cout << " Ciseau [3]" << std::endl;
-
 }
