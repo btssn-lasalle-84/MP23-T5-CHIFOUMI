@@ -54,8 +54,6 @@ void demarrerPartie()
     std::cout << "(Tapez votre pseudo :)" << std::endl;
     Joueur joueur;
 
-    //std::cin >> ;
-
     std::cout << "(Parfait )" << joueur.getPseudo()
               << ", la partie va commencer..." << std::endl;
 }
