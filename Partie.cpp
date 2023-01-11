@@ -8,8 +8,7 @@
 #include <iostream>
 #endif
 
-Partie::Partie(IHM* ihm, Symbole* symbole) :
-    ihm(ihm), symbole(symbole), joueur(new Joueur)
+Partie::Partie(IHM* ihm) : ihm(ihm), joueur(new Joueur)
 {
 #ifdef DEBUG_PARTIE
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] " << this

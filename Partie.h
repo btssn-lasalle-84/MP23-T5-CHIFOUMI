@@ -17,7 +17,7 @@ class Partie
     Symbole* symbole;
 
   public:
-    Partie(IHM* ihm, Symbole* symbole);
+    Partie(IHM* ihm);
     ~Partie();
 
     void         demarrer();
