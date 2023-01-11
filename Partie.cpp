@@ -1,24 +1,39 @@
 #include "Partie.h"
+#include "IHM.h"
+#include "Joueur.h"
 #include <string>
 
-Partie::Partie() : nbParties()
+#ifdef DEBUG_PARTIE
+#include <iostream>
+#endif
+
+Partie::Partie(IHM* ihm) : ihm(ihm), joueur(new Joueur)
 {
+#ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] " << this
+              << std::endl;
+#endif
 }
 
-Partie::Partie(unsigned int nbParties) : nbParties(nbParties)
+Partie::~Partie()
 {
-}
-
-unsigned int Partie::getNbParties()
-{
-    return nbParties;
-}
-
-void Partie::setNbParties(unsigned int nbParties)
-{
-    this->nbParties = nbParties;
+    delete joueur;
+#ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] " << this
+              << std::endl;
+#endif
 }
 
 void Partie::demarrer()
 {
+#ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+              << " ..." << std::endl;
+#endif
+    std::string pseudo = ihm->saisirPseudo();
+    joueur->setPseudo(pseudo);
+#ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+              << "pseudo = " << joueur->getPseudo() << std::endl;
+#endif
 }
