@@ -47,17 +47,42 @@ void IHM::menuPrincipal()
 
         Tapez votre choix :
     )"  << std::endl;
+
+int choix;
+    std::cin >> choix;
+
+    IHM ihm;
+
+    switch(choix)
+    {
+        case 1:
+            ihm.demarrerPartie();
+            break;
+        case 2:
+            ihm.afficherHistorique();
+            break;
+        case 3:
+            ihm.quitterJeu();
+            break;
+    }
 }
 
-/*void demarrerPartie()
+void IHM::demarrerPartie()
 {
-        std::cout << R"(
-            Tapez votre pseudo :
-            )"  << std::endl;
+}
+void IHM::choixPseudo()
+{
+    std::cout << "Tapez votre pseudo : " << std::endl;
+    std::string pseudo;
+    std::cin >> pseudo;
+    Joueur joueur(pseudo);
+    std::cout << "Votre pseudo est :" << joueur.getPseudo() << std::endl;
+}
 
-        std::cin >> joueur.pseudo >> std::endl;
+void IHM::afficherHistorique()
+{
+}
 
-        std::cout << R"(
-            Parfait )" << joueur.pseudo << ", la partie va commencer..." <<
-std::endl; sleep(3);
-}*/
+void IHM::quitterJeu()
+{
+}
