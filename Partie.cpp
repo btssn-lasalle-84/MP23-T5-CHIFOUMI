@@ -36,4 +36,13 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << "pseudo = " << joueur->getPseudo() << std::endl;
 #endif
+
+}
+
+unsigned int Partie::choisirNbOrdinateur()
+{
+    int choixOrdinateur;
+    srand(time(0));
+    choixOrdinateur = rand() % 3 + 1;
+    return choixOrdinateur;
 }
