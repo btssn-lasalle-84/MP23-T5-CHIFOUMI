@@ -10,6 +10,7 @@ class IHM
     IHM();
     void menuPrincipal();
     void demarrerPartie();
+    void choixPseudo();
     void afficherHistorique();
     void quitterJeu();
 };
