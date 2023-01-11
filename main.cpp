@@ -1,8 +1,9 @@
-#include "Partie.h"
+#include "IHM.h"
 
 int main()
 {
-    Partie partie;
-    partie.demarrer();
+    IHM ihm;
+    ihm.menuPrincipal();
+
     return 0;
 }
