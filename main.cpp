@@ -3,7 +3,7 @@
 int main()
 {
     IHM ihm;
-    ihm.menuPrincipal();
+    ihm.afficherMenuPrincipal();
 
     return 0;
 }

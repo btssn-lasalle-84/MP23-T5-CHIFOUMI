@@ -1,13 +1,20 @@
 #include "IHM.h"
+#include "Partie.h"
 #include "Joueur.h"
 #include <string>
 #include <iostream>
 
-IHM::IHM()
+IHM::IHM() : partie(new Partie(this))
 {
+    //
 }
 
-void IHM::menuPrincipal()
+IHM::~IHM()
+{
+    delete partie;
+}
+
+void IHM::afficherMenuPrincipal() const
 {
     std::cout << R"(
          _____  _      _   __                           _
@@ -48,41 +55,39 @@ void IHM::menuPrincipal()
         Tapez votre choix :
     )"  << std::endl;
 
-int choix;
+    int choix;
     std::cin >> choix;
-
-    IHM ihm;
 
     switch(choix)
     {
         case 1:
-            ihm.demarrerPartie();
+            partie->demarrer();
             break;
         case 2:
-            ihm.afficherHistorique();
+            afficherHistorique();
             break;
         case 3:
-            ihm.quitterJeu();
+            quitterJeu();
             break;
     }
 }
 
-void IHM::demarrerPartie()
+void IHM::demarrerPartie() const
 {
 }
-void IHM::choixPseudo()
+
+std::string IHM::saisirPseudo() const
 {
-    std::cout << "Tapez votre pseudo : " << std::endl;
+    std::cout << "Tapez votre pseudo : ";
     std::string pseudo;
     std::cin >> pseudo;
-    Joueur joueur(pseudo);
-    std::cout << "Votre pseudo est :" << joueur.getPseudo() << std::endl;
+    return pseudo;
 }
 
-void IHM::afficherHistorique()
+void IHM::afficherHistorique() const
 {
 }
 
-void IHM::quitterJeu()
+void IHM::quitterJeu() const
 {
 }

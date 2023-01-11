@@ -3,17 +3,20 @@
 
 #include <string>
 
+#define DEBUG_PARTIE
+
+class IHM;
+class Joueur;
+
 class Partie
 {
   private:
-    unsigned int nbParties;
+    IHM*    ihm;
+    Joueur* joueur;
 
   public:
-    Partie();
-    Partie(unsigned int nbParties);
-
-    unsigned int getNbParties();
-    void         setNbParties(unsigned int nbParties);
+    Partie(IHM* ihm = nullptr);
+    ~Partie();
 
     void demarrer();
 };
