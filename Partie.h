@@ -7,18 +7,20 @@
 
 class IHM;
 class Joueur;
+class Symbole;
 
 class Partie
 {
   private:
-    IHM*    ihm;
-    Joueur* joueur;
+    IHM*     ihm;
+    Joueur*  joueur;
+    Symbole* symbole;
 
   public:
-    Partie(IHM* ihm = nullptr);
+    Partie(IHM* ihm, Symbole* symbole);
     ~Partie();
 
-    void demarrer();
+    void         demarrer();
     unsigned int choisirNbOrdinateur();
 };
 

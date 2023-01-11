@@ -1,13 +1,15 @@
 #include "Partie.h"
 #include "IHM.h"
 #include "Joueur.h"
+#include "Symbole.h"
 #include <string>
 
 #ifdef DEBUG_PARTIE
 #include <iostream>
 #endif
 
-Partie::Partie(IHM* ihm) : ihm(ihm), joueur(new Joueur)
+Partie::Partie(IHM* ihm, Symbole* symbole) :
+    ihm(ihm), symbole(symbole), joueur(new Joueur)
 {
 #ifdef DEBUG_PARTIE
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] " << this
@@ -36,7 +38,6 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << "pseudo = " << joueur->getPseudo() << std::endl;
 #endif
-
 }
 
 unsigned int Partie::choisirNbOrdinateur()
