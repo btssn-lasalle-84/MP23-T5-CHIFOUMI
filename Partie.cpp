@@ -1,6 +1,7 @@
 #include "Partie.h"
 #include "IHM.h"
 #include "Joueur.h"
+#include "Symbole.h"
 #include <string>
 
 #ifdef DEBUG_PARTIE
@@ -36,7 +37,6 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << "pseudo = " << joueur->getPseudo() << std::endl;
 #endif
-
 }
 
 unsigned int Partie::choisirNbOrdinateur()
