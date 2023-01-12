@@ -6,21 +6,21 @@
 class Symbole
 {
   private:
-    unsigned int signeMain;
+    int signeMain;
 
   public:
     Symbole();
     Symbole(unsigned int signeMain);
-    unsigned int getSymbole() const;
+    int getSymbole() const;
     std::string  getSymboleToString() const;
     enum SigneMain
     {
-        INDEFINI = -1,
-        PIERRE = 0,
-        FEUILLE = 1,
-        CISEAUX = 2,
-        NbSymboles = 3,
-        UNSIGNED_SigneMain = (unsigned int) INDEFINI
+        INDEFINI           = -1,
+        PIERRE             = 0,
+        FEUILLE            = 1,
+        CISEAUX            = 2,
+        NbSymboles         = 3,
+        UNSIGNED_SigneMain = (unsigned int)INDEFINI
     };
     // TODO surcharger l'opérateur << et >>
 };

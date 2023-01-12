@@ -8,7 +8,7 @@ Symbole::Symbole(unsigned int signeMain) : signeMain(signeMain)
 {
 }
 
-unsigned int Symbole::getSymbole() const
+int Symbole::getSymbole() const
 {
     return signeMain;
 }
