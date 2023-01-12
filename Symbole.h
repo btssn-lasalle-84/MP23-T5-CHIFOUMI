@@ -11,8 +11,8 @@ class Symbole
   public:
     Symbole();
     Symbole(unsigned int signeMain);
-    int getSymbole() const;
-    std::string  getSymboleToString() const;
+    int         getSymbole() const;
+    std::string getSymboleToString() const;
     enum SigneMain
     {
         INDEFINI           = -1,
