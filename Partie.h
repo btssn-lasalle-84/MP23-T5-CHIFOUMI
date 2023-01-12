@@ -22,7 +22,7 @@ class Partie
     ~Partie();
 
     void         demarrer();
-    unsigned int choisirNbOrdinateur();
+    unsigned int obtenirNbOrdinateur();
 };
 
 #endif // PARTIE_H
