@@ -16,10 +16,10 @@ class Symbole
     enum SigneMain
     {
         INDEFINI = -1,
-        PIERRE,
-        FEUILLE,
-        CISEAUX,
-        NbSymboles,
+        PIERRE = 0,
+        FEUILLE = 1,
+        CISEAUX = 2,
+        NbSymboles = 3,
         UNSIGNED_SigneMain = (unsigned int) INDEFINI
     };
     // TODO surcharger l'opérateur << et >>
