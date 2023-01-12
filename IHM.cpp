@@ -84,6 +84,17 @@ std::string IHM::saisirPseudo() const
     return pseudo;
 }
 
+int IHM::obtenirNbJoueur()
+{
+    std::cout << "Vous avez le choix entre :" << std::endl;
+    std::cout << "La Pierre   [1]" << std::endl;
+    std::cout << "La Feuille  [2]" << std::endl;
+    std::cout << "Le Ciseaux  [3]" << std::endl;
+    int choixJoueur;
+    std::cin >> choixJoueur;
+    return choixJoueur;
+}
+
 void IHM::afficherHistorique() const
 {
 }

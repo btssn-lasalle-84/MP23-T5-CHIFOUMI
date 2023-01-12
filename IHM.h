@@ -8,7 +8,7 @@ class Partie;
 class IHM
 {
   private:
-    Partie *partie;
+    Partie* partie;
 
   public:
     IHM();
@@ -16,6 +16,7 @@ class IHM
     void        afficherMenuPrincipal() const;
     void        demarrerPartie() const;
     std::string saisirPseudo() const;
+    int         obtenirNbJoueur();
     void        afficherHistorique() const;
     void        quitterJeu() const;
 };

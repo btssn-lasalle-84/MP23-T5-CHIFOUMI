@@ -41,7 +41,10 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << "pseudo = " << joueur->getPseudo() << std::endl;
 #endif
-
+#ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+              << "choixJoueur = " << ihm->obtenirNbJoueur() << std::endl;
+#endif
 }
 
 unsigned int Partie::choisirNbOrdinateur()
