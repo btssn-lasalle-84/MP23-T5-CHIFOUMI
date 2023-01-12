@@ -19,7 +19,8 @@ class Symbole
         PIERRE,
         FEUILLE,
         CISEAUX,
-        NbSymboles
+        NbSymboles,
+        UNSIGNED_SigneMain = (unsigned int) INDEFINI
     };
     // TODO surcharger l'opérateur << et >>
 };
