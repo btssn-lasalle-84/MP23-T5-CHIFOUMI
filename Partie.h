@@ -21,8 +21,17 @@ class Partie
     Partie(Symbole* symbole);
     ~Partie();
 
+    enum ResultatDuel
+    {
+        INDEFINI,
+        EGALITE,
+        GAGNE,
+        PERDU
+    };
     void         demarrer();
-    unsigned int obtenirNbOrdinateur();
+    Symbole      obtenirSymboleOrdinateur();
+    ResultatDuel determinerResultat(Symbole choixJoueur,
+                                    Symbole choixOrdinateur);
 };
 
 #endif // PARTIE_H

@@ -17,26 +17,26 @@ LDFLAGS =
 
 all: $(TARGET)
 
-$(TARGET): $(MAIN).o $(JOUEUR).o $(PARTIE).o $(HISTORIQUE).o $(IHM).o
+$(TARGET): $(MAIN).o $(JOUEUR).o $(PARTIE).o $(HISTORIQUE).o $(IHM).o $(SYMBOLE).o
 	$(LD) $@ $(LDFLAGS) $^
 
 $(MAIN).o: $(MAIN).cpp
 	$(CXX) $(CFLAGS) $^
 
-$(JOUEUR).o: $(JOUEUR).cpp
-	$(CXX) $(CFLAGS) $^
+$(JOUEUR).o: $(JOUEUR).cpp $(JOUEUR).h
+	$(CXX) $(CFLAGS) $<
 
-$(PARTIE).o: $(PARTIE).cpp
-	$(CXX) $(CFLAGS) $^
+$(PARTIE).o: $(PARTIE).cpp $(PARTIE).h
+	$(CXX) $(CFLAGS) $<
 
-$(HISTORIQUE).o: $(HISTORIQUE).cpp
-	$(CXX) $(CFLAGS) $^
+$(HISTORIQUE).o: $(HISTORIQUE).cpp $(HISTORIQUE).h
+	$(CXX) $(CFLAGS) $<
 
-$(IHM).o: $(IHM).cpp
-	$(CXX) $(CFLAGS) $^
+$(IHM).o: $(IHM).cpp $(IHM).h
+	$(CXX) $(CFLAGS) $<
 
-$(SYMBOLE).o: $(SYMBOLE).cpp
-	$(CXX) $(CFLAGS) $^
+$(SYMBOLE).o: $(SYMBOLE).cpp $(SYMBOLE).h
+	$(CXX) $(CFLAGS) $<
 
 .PHONY: check cppcheck format clean cleanall
 
