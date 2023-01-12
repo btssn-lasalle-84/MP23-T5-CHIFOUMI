@@ -65,6 +65,7 @@ void IHM::afficherMenuPrincipal() const
     // TODO gérer le menu avec une boucle
     int choix;
     std::cin >> choix;
+    std::cout << "\n";
 
     switch(choix)
     {
@@ -113,6 +114,7 @@ std::string IHM::saisirPseudo() const
     std::cout << "        Tapez votre pseudo : ";
     std::string pseudo;
     std::cin >> pseudo;
+    std::cout << "\n";
     // TODO valider la saisie (pas vide, ...)
     return pseudo;
 }
@@ -120,10 +122,10 @@ std::string IHM::saisirPseudo() const
 void IHM::afficherChoixSymbole() const
 {
     // TODO formater l'affichage
-    std::cout << "Vous avez le choix entre :" << std::endl;
-    std::cout << "La Pierre   [1]" << std::endl;
-    std::cout << "La Feuille  [2]" << std::endl;
-    std::cout << "Le Ciseaux  [3]" << std::endl;
+    std::cout << "        Vous avez le choix entre :" << std::endl;
+    std::cout << "        La Pierre   [1]" << std::endl;
+    std::cout << "        La Feuille  [2]" << std::endl;
+    std::cout << "        Le Ciseaux  [3]" << std::endl;
 }
 
 Symbole IHM::saisirSymbole() const
