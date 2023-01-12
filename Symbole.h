@@ -16,7 +16,7 @@ class Symbole
     Symbole();
     Symbole(unsigned int signeMain);
     unsigned int getSymbole() const;
-    enum Symboles
+    enum SigneMain
     {
         Pierre,
         Feuille,
