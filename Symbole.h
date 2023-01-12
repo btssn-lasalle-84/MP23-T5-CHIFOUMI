@@ -3,10 +3,6 @@
 
 #include <string>
 
-#define NB_SYMBOLE_PIERRE  1
-#define NB_SYMBOLE_FEUILLE 2
-#define NB_SYMBOLE_CISEAUX 3
-
 class Symbole
 {
   private:
@@ -16,12 +12,16 @@ class Symbole
     Symbole();
     Symbole(unsigned int signeMain);
     unsigned int getSymbole() const;
+    std::string  getSymboleToString() const;
     enum SigneMain
     {
-        Pierre,
-        Feuille,
-        Ciseaux,
+        INDEFINI = -1,
+        PIERRE,
+        FEUILLE,
+        CISEAUX,
+        NbSymboles
     };
+    // TODO surcharger l'opérateur << et >>
 };
 
 #endif // PARTIE_H
