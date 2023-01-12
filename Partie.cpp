@@ -18,6 +18,10 @@ Partie::Partie(IHM* ihm) : ihm(ihm), joueur(new Joueur)
 
 Partie::Partie(Symbole* symbole) : symbole(symbole)
 {
+    #ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] " << this
+              << std::endl;
+#endif
 }
 
 Partie::~Partie()
@@ -45,9 +49,13 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << "choixJoueur = " << ihm->obtenirNbJoueur() << std::endl;
 #endif
+#ifdef DEBUG_PARTIE
+    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+              << "choixOrdinateur = " << obtenirNbOrdinateur() << std::endl;
+#endif
 }
 
-unsigned int Partie::choisirNbOrdinateur()
+unsigned int Partie::obtenirNbOrdinateur()
 {
     int choixOrdinateur;
     srand(time(0));
