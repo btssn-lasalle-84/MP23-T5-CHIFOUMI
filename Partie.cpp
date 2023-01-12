@@ -16,6 +16,10 @@ Partie::Partie(IHM* ihm) : ihm(ihm), joueur(new Joueur)
 #endif
 }
 
+Partie::Partie(Symbole* symbole) : symbole(symbole)
+{
+}
+
 Partie::~Partie()
 {
     delete joueur;
@@ -37,6 +41,7 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << "pseudo = " << joueur->getPseudo() << std::endl;
 #endif
+
 }
 
 unsigned int Partie::choisirNbOrdinateur()
