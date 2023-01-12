@@ -112,41 +112,34 @@ Partie::ResultatDuel Partie::determinerResultat(Symbole choixJoueur,
                 return Partie::ResultatDuel::GAGNE;
             }
             break;
-            // TODO gérer l'ensemble des combinaisons
-        /*case FEUILLE:
-            if(choixOrdinateur == PIERRE)
+        case Symbole::SigneMain::FEUILLE:
+            if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
             {
-                std::cout << "Vous avez gagné! L'ordinateur a choisi Pierre."
-                          << std::endl;
+                return Partie::ResultatDuel::GAGNE;
             }
-            else if(choixOrdinateur == FEUILLE)
+            else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::FEUILLE)
             {
-                std::cout << "Egalité! L'ordinateur a choisi Feuille également."
-                          << std::endl;
+                return Partie::ResultatDuel::EGALITE;
             }
             else
             {
-                std::cout << "Vous avez perdu! L'ordinateur a choisi Ciseaux."
-                          << std::endl;
+                return Partie::ResultatDuel::PERDU;
             }
             break;
-        case CISEAUX:
-            if(choixOrdinateur == PIERRE)
+        case Symbole::SigneMain::CISEAUX:
+            if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
             {
-                std::cout << "Vous avez perdu! L'ordinateur a choisi Pierre."
-                          << std::endl;
+                return Partie::ResultatDuel::PERDU;
             }
-            else if(choixOrdinateur == FEUILLE)
+            else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::FEUILLE)
             {
-                std::cout << "Vous avez gagné! L'ordinateur a choisi Feuille."
-                          << std::endl;
+                return Partie::ResultatDuel::GAGNE;
             }
             else
             {
-                std::cout << "Egalité! L'ordinateur a choisi Ciseaux également."
-                          << std::endl;
+                return Partie::ResultatDuel::EGALITE;
             }
-            break;*/
+            break;
         default:
 #ifdef DEBUG_PARTIE
             std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "

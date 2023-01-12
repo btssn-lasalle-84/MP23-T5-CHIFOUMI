@@ -29,7 +29,7 @@ class Partie
         PERDU
     };
     void         demarrer();
-    Symbole obtenirSymboleOrdinateur();
+    Symbole      obtenirSymboleOrdinateur();
     ResultatDuel determinerResultat(Symbole choixJoueur,
                                     Symbole choixOrdinateur);
 };
