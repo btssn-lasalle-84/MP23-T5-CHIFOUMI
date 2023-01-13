@@ -24,7 +24,7 @@ class IHM
     void afficherResultat(std::string          nomJoueurGagnant,
                           Symbole              choixGagnant,
                           Partie::ResultatDuel resultat) const;
-    void afficherHistorique() const;
+    void afficherHistorique(int scoreJoueur, int scoreOrdinateur) const;
 
     std::string saisirPseudo() const;
     Symbole     saisirSymbole() const;
