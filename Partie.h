@@ -3,7 +3,7 @@
 
 #include <string>
 
-#define DEBUG_PARTIE
+//#define DEBUG_PARTIE
 
 class IHM;
 class Joueur;
