@@ -3,6 +3,7 @@
 #include "Symbole.h"
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 
 IHM::IHM() : partie(new Partie(this))
 {
@@ -20,6 +21,9 @@ void IHM::demarrerPartie() const
 
 void IHM::quitterJeu() const
 {
+    std::cout << "        Merci d'avoir joué au Chifoumi, à bientôt ! :)\n"
+              << std::endl;
+    exit(0);
 }
 
 void IHM::afficherMenuPrincipal() const
@@ -50,34 +54,42 @@ void IHM::afficherMenuPrincipal() const
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣧⣀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠛⠛⠛⠛⠛⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        ----------------------------------------------------------------
+        --------------------------------------------------------------
     )" << std::endl;
 
     std::cout << R"(
-        Bienvenue sur le Chifoumi !
+        Bienvenue sur le Chifoumi !)";
 
+    saisirPseudo();
+
+    std::cout << "        Version 1.1\n";
+
+    for(;;)
+    {
+        std::cout << R"(
         [1] Lancer une partie
         [2] Afficher l'historique des parties jouées
         [3] Quitter le jeu
 
         Tapez votre choix : )";
 
-    // TODO gérer le menu avec une boucle
-    int choix;
-    std::cin >> choix;
-    std::cout << "\n";
+        int choix;
+        std::cin >> choix;
+        std::cout << "\n";
 
-    switch(choix)
-    {
-        case 1:
-            demarrerPartie();
-            break;
-        case 2:
-            afficherHistorique();
-            break;
-        case 3:
-            quitterJeu();
-            break;
+        switch(choix)
+        {
+            case 1:
+                demarrerPartie();
+                break;
+            case 2:
+                afficherHistorique(partie->getScoreJoueur(),
+                                   partie->getScoreOrdinateur());
+                break;
+            case 3:
+                quitterJeu();
+                break;
+        }
     }
 }
 
@@ -89,24 +101,34 @@ void IHM::afficherResultat(std::string          nomJoueurGagnant,
     switch(resultat)
     {
         case Partie::ResultatDuel::EGALITE:
-            resultatDuel = "Égalité ! ";
+            resultatDuel = "\n        Égalité ! ";
             break;
         case Partie::ResultatDuel::GAGNE:
-            resultatDuel = "Gagné ! ";
+            resultatDuel = "\n        Gagné ! ";
             break;
         case Partie::ResultatDuel::PERDU:
-            resultatDuel = "Perdu ! ";
+            resultatDuel = "\n        Perdu ! ";
             break;
         case Partie::ResultatDuel::INDEFINI:
-            resultatDuel = "Indéfini !!! ";
+            resultatDuel = "\n        Indéfini !!! ";
             break;
     }
     std::cout << resultatDuel << nomJoueurGagnant << " a choisi "
               << choixGagnant.getSymboleToString() << "." << std::endl;
 }
 
-void IHM::afficherHistorique() const
+void IHM::afficherHistorique(int scoreJoueur, int scoreOrdinateur) const
 {
+    std::cout << R"(
+        --------------------------------------------------------------
+    )" << std::endl;
+    std::cout << "        Le score du joueur est de " << scoreJoueur
+              << " point(s)" << std::endl;
+    std::cout << "        Et le score de l'ordinateur est de "
+              << scoreOrdinateur << " point(s)" << std::endl;
+    std::cout << R"(
+        --------------------------------------------------------------
+    )" << std::endl;
 }
 
 std::string IHM::saisirPseudo() const
@@ -126,6 +148,7 @@ void IHM::afficherChoixSymbole() const
     std::cout << "        La Pierre   [1]" << std::endl;
     std::cout << "        La Feuille  [2]" << std::endl;
     std::cout << "        Le Ciseaux  [3]" << std::endl;
+    std::cout << "\n        Tapez votre choix : ";
 }
 
 Symbole IHM::saisirSymbole() const

@@ -40,9 +40,6 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << " début" << std::endl;
 #endif
-    // TODO revoir l'emplacement de la saisie du pseudo (elle doit être unique)
-    std::string pseudo = ihm->saisirPseudo();
-    joueur->setPseudo(pseudo);
 
     ihm->afficherChoixSymbole();
     Symbole choixSymboleJoueur     = ihm->saisirSymbole();
@@ -68,12 +65,14 @@ void Partie::demarrer()
         ihm->afficherResultat(joueur->getPseudo(),
                               choixSymboleJoueur,
                               resultatDuel);
+        scoreJoueur += 1;
     }
     else if(resultatDuel == ResultatDuel::PERDU)
     {
         ihm->afficherResultat("L'ordinateur",
                               choixSymboleOrdinateur,
                               resultatDuel);
+        scoreOrdinateur += 1;
     }
     else
     {
@@ -149,4 +148,14 @@ Partie::ResultatDuel Partie::determinerResultat(Symbole choixJoueur,
             return Partie::ResultatDuel::INDEFINI;
             break;
     }
+}
+
+int Partie::getScoreJoueur() const
+{
+    return scoreJoueur;
+}
+
+int Partie::getScoreOrdinateur() const
+{
+    return scoreOrdinateur;
 }
