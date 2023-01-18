@@ -62,6 +62,8 @@ void IHM::afficherMenuPrincipal() const
 
     saisirPseudo();
 
+    std::cout << "        Version 1.1\n";
+
     for(;;)
     {
         std::cout << R"(
@@ -99,16 +101,16 @@ void IHM::afficherResultat(std::string          nomJoueurGagnant,
     switch(resultat)
     {
         case Partie::ResultatDuel::EGALITE:
-            resultatDuel = "        Égalité ! ";
+            resultatDuel = "\n        Égalité ! ";
             break;
         case Partie::ResultatDuel::GAGNE:
-            resultatDuel = "        Gagné ! ";
+            resultatDuel = "\n        Gagné ! ";
             break;
         case Partie::ResultatDuel::PERDU:
-            resultatDuel = "        Perdu ! ";
+            resultatDuel = "\n        Perdu ! ";
             break;
         case Partie::ResultatDuel::INDEFINI:
-            resultatDuel = "        Indéfini !!! ";
+            resultatDuel = "\n        Indéfini !!! ";
             break;
     }
     std::cout << resultatDuel << nomJoueurGagnant << " a choisi "
