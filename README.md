@@ -27,4 +27,4 @@ contre le deuxième (son homologue) et est battu par le troisième. Une partie p
 
     Date : Janvier 2022
 
-    Version : 1.0
+    Version : 1.2

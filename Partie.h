@@ -15,12 +15,17 @@ class Partie
     IHM*     ihm;
     Joueur*  joueur;
     Symbole* symbole;
+    int      scoreJoueur     = 0;
+    int      scoreOrdinateur = 0;
+    int      nbEgalites       = 0;
 
   public:
-    Partie(IHM* ihm);
+    Partie(IHM* ihm, Joueur* joueur);
     Partie(Symbole* symbole);
     ~Partie();
-
+    int getScoreJoueur() const;
+    int getScoreOrdinateur() const;
+    int getNbEgalite() const;
     enum ResultatDuel
     {
         INDEFINI,

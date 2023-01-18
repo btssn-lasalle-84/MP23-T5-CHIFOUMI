@@ -21,13 +21,13 @@ std::string Symbole::getSymboleToString() const
             return "indéfini";
             break;
         case PIERRE:
-            return "pierre";
+            return "la pierre";
             break;
         case FEUILLE:
-            return "feuille";
+            return "la feuille";
             break;
         case CISEAUX:
-            return "ciseaux";
+            return "le ciseaux";
             break;
     }
     return std::string();
