@@ -15,17 +15,33 @@ class Partie
     IHM*     ihm;
     Joueur*  joueur;
     Symbole* symbole;
-    int      scoreJoueur     = 0;
-    int      scoreOrdinateur = 0;
-    int      nbEgalites       = 0;
+
+    int scoreManchesJoueur     = 0;
+    int scoreManchesOrdinateur = 0;
+    int nbEgalitesManche       = 0;
+
+    int scorePartiesJoueur     = 0;
+    int scorePartiesOrdinateur = 0;
+    int nbEgalitesParties      = 0;
+
+    unsigned int nbManches    = 0;
+    unsigned int numeroManche = 0;
 
   public:
     Partie(IHM* ihm, Joueur* joueur);
     Partie(Symbole* symbole);
     ~Partie();
-    int getScoreJoueur() const;
-    int getScoreOrdinateur() const;
-    int getNbEgalite() const;
+    int getScoreManchesJoueur() const;
+    int getScoreManchesOrdinateur() const;
+    int getNbEgalitesManches() const;
+
+    int getScorePartiesJoueur() const;
+    int getScorePartiesOrdinateur() const;
+    int getNbEgalitesParties() const;
+
+    unsigned int getNbManches();
+    void         setNbManches(unsigned int nbManches);
+    int          getNumeroManche();
 
     enum ResultatDuel
     {
@@ -38,6 +54,10 @@ class Partie
     Symbole      obtenirSymboleOrdinateur();
     ResultatDuel determinerResultat(Symbole choixJoueur,
                                     Symbole choixOrdinateur);
+    void         determinerGagnant(ResultatDuel resultatDuel,
+                                   Symbole      choixSymboleJoueur,
+                                   Symbole      choixSymboleOrdinateur);
+    void         determinerNbPartieGagnees();
 };
 
 #endif // PARTIE_H

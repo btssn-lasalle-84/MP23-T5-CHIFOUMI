@@ -16,6 +16,9 @@ IHM::~IHM()
 
 void IHM::demarrerPartie() const
 {
+    unsigned int nbManches = saisirNbManches();
+    partie->setNbManches(nbManches);
+    effacerEcran();
     partie->demarrer();
     retournerAuMenu();
 }
@@ -100,9 +103,13 @@ void IHM::afficherMenuPrincipal() const
                 effacerEcran();
                 break;
             case 2:
-                afficherHistorique(partie->getScoreJoueur(),
-                                   partie->getScoreOrdinateur(),
-                                   partie->getNbEgalite());
+                effacerEcran();
+                afficherHistorique(partie->getScoreManchesJoueur(),
+                                   partie->getScoreManchesOrdinateur(),
+                                   partie->getNbEgalitesManches(),
+                                   partie->getScorePartiesJoueur(),
+                                   partie->getScorePartiesOrdinateur(),
+                                   partie->getNbEgalitesParties());
                 effacerEcran();
                 break;
             case 3:
@@ -128,10 +135,10 @@ void IHM::afficherResultat(std::string          nomJoueurGagnant,
             resultatDuel = "\n        Égalité ! ";
             break;
         case Partie::ResultatDuel::GAGNE:
-            resultatDuel = "\n        Gagné, ";
+            resultatDuel = "\n        Manche gagnée, ";
             break;
         case Partie::ResultatDuel::PERDU:
-            resultatDuel = "\n        Perdu, ";
+            resultatDuel = "\n        Manche perdue, ";
             break;
         case Partie::ResultatDuel::INDEFINI:
             resultatDuel = "\n        Indéfini !!! ";
@@ -150,41 +157,60 @@ void IHM::afficherResultat(std::string          nomJoueurGagnant,
     {
         std::cout << "\n"
                   << resultatDuel << choixJoueur.getSymboleToString() << " bat "
-                  << choixOrdinateur.getSymboleToString() << " !!!";
+                  << choixOrdinateur.getSymboleToString() << " !!!\n";
     }
     else if(resultat == Partie::ResultatDuel::PERDU)
     {
         std::cout << "\n"
                   << resultatDuel << choixOrdinateur.getSymboleToString()
-                  << " bat " << choixJoueur.getSymboleToString() << " :(";
+                  << " bat " << choixJoueur.getSymboleToString() << " :(\n";
     }
     else
         std::cout << "\n"
                   << resultatDuel << joueur->getPseudo()
                   << " et l'ordinateur ont tous les deux choisi "
-                  << choixJoueur.getSymboleToString() << " ! " << std::endl;
+                  << choixJoueur.getSymboleToString() << " ! \n"
+                  << std::endl;
 
     std::cout
       << "\n        "
          "--------------------------------------------------------------";
 }
 
-void IHM::afficherHistorique(int scoreJoueur,
-                             int scoreOrdinateur,
-                             int nbEgalites) const
+void IHM::afficherHistorique(int scoreManchesJoueur,
+                             int scoreManchesOrdinateur,
+                             int nbEgalitesManches,
+                             int scorePartiesJoueur,
+                             int scorePartiesOrdinateur,
+                             int nbEgalitesParties) const
 {
     std::cout << R"(
         --------------------------------------------------------------
     )" << std::endl;
-    std::cout << "        Le score de " <<joueur->getPseudo() <<" est de " << scoreJoueur
-              << " point(s)" << std::endl;
-    std::cout << "        Le score de l'ordinateur est de " << scoreOrdinateur
-              << " point(s)" << std::endl;
-    std::cout << "        Le nombre d'égalité(s) est de " << nbEgalites
+    std::cout << "        Sur la dernière partie :\n\n";
+    std::cout << "        " << joueur->getPseudo() << " a gagné "
+              << scoreManchesJoueur << " manche(s)" << std::endl;
+    std::cout << "        L'ordinateur a gagné " << scoreManchesOrdinateur
+              << " manche(s)" << std::endl;
+    std::cout << "        Et il y a eu " << nbEgalitesManches << " égalité(s)"
               << std::endl;
     std::cout << R"(
         --------------------------------------------------------------
     )" << std::endl;
+
+    std::cout << R"(
+        --------------------------------------------------------------
+    )" << std::endl;
+    std::cout << "        " << joueur->getPseudo() <<" a gagné " << scorePartiesJoueur
+              << " partie(s)" << std::endl;
+    std::cout << "        L'ordinateur a gagné " << scorePartiesOrdinateur
+              << " partie(s)" << std::endl;
+    std::cout << "        Vous avez fait " << nbEgalitesParties << " égalité(s)"
+              << std::endl;
+    std::cout << R"(
+        --------------------------------------------------------------
+    )" << std::endl;
+
     retournerAuMenu();
 }
 
@@ -200,7 +226,10 @@ std::string IHM::saisirPseudo() const
 void IHM::afficherChoixSymbole() const
 {
     // TODO formater l'affichage
-    std::cout << "        Vous avez le choix entre :" << std::endl;
+
+    std::cout << "\n\n        Manche " << partie->getNumeroManche() + 1 << " :"
+              << std::endl;
+    std::cout << "\n        Vous avez le choix entre :" << std::endl;
     std::cout << "        La Pierre   [1]" << std::endl;
     std::cout << "        La Feuille  [2]" << std::endl;
     std::cout << "        Le Ciseaux  [3]" << std::endl;
@@ -217,7 +246,7 @@ Symbole IHM::saisirSymbole() const
 
 void IHM::retournerAuMenu() const
 {
-    std::cout << "\n        Appuyez sur n'importe quelle touche, puis 'Entrée' "
+    std::cout << "\n        Appuyez sur n'importe quelle touche, puis 'Entrée'"
                  ", pour retourner au menu principal : ";
     std::string retourAuMenu;
     std::cin >> retourAuMenu;
@@ -226,4 +255,12 @@ void IHM::retournerAuMenu() const
 void IHM::effacerEcran() const
 {
     system("clear");
+}
+
+int IHM::saisirNbManches() const
+{
+    std::cout << "        Tapez le nombre de manches que vous voulez jouer : ";
+    unsigned int nbManches = 0;
+    std::cin >> nbManches;
+    return nbManches;
 }
