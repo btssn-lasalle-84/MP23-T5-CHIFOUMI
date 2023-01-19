@@ -8,7 +8,7 @@
 #include <iostream>
 #endif
 
-Partie::Partie(IHM* ihm) : ihm(ihm), joueur(new Joueur)
+Partie::Partie(IHM* ihm, Joueur* joueur) : ihm(ihm), joueur(joueur)
 {
 #ifdef DEBUG_PARTIE
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] " << this
@@ -40,7 +40,6 @@ void Partie::demarrer()
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
               << " début" << std::endl;
 #endif
-
     ihm->afficherChoixSymbole();
     Symbole choixSymboleJoueur     = ihm->saisirSymbole();
     Symbole choixSymboleOrdinateur = obtenirSymboleOrdinateur();
@@ -55,7 +54,6 @@ void Partie::demarrer()
               << choixSymboleOrdinateur.getSymbole() << " -> "
               << choixSymboleOrdinateur.getSymboleToString() << std::endl;
 #endif
-
     Partie::ResultatDuel resultatDuel =
       determinerResultat(choixSymboleJoueur, choixSymboleOrdinateur);
 
@@ -64,12 +62,14 @@ void Partie::demarrer()
     {
         ihm->afficherResultat(joueur->getPseudo(),
                               choixSymboleJoueur,
+                              choixSymboleOrdinateur,
                               resultatDuel);
         scoreJoueur += 1;
     }
     else if(resultatDuel == ResultatDuel::PERDU)
     {
         ihm->afficherResultat("L'ordinateur",
+                              choixSymboleJoueur,
                               choixSymboleOrdinateur,
                               resultatDuel);
         scoreOrdinateur += 1;
@@ -77,8 +77,10 @@ void Partie::demarrer()
     else
     {
         ihm->afficherResultat("L'ordinateur",
+                              choixSymboleJoueur,
                               choixSymboleOrdinateur,
                               resultatDuel);
+        nbEgalites += 1;
     }
 #ifdef DEBUG_PARTIE
     std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
@@ -158,4 +160,9 @@ int Partie::getScoreJoueur() const
 int Partie::getScoreOrdinateur() const
 {
     return scoreOrdinateur;
+}
+
+int Partie::getNbEgalite() const
+{
+    return nbEgalites;
 }

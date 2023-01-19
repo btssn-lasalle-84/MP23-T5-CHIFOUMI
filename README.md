@@ -6,8 +6,8 @@
 ## Présentation
 
 Les deux joueurs choisissent simultanément un des trois coups possibles en le symbolisant de la main.
-De façon générale, la pierre bat les ciseaux (en les émoussant), les ciseaux battent la feuille (en la
-coupant), la feuille bat la pierre (en l’enveloppant). Ainsi chaque coup bat un autre coup, fait match nul
+
+De façon générale, la pierre bat les ciseaux (en les émoussant), les ciseaux battent la feuille (en la coupant), la feuille bat la pierre (en l’enveloppant). Ainsi chaque coup bat un autre coup, fait match nul
 contre le deuxième (son homologue) et est battu par le troisième. Une partie peut se faire en plusieurs manches.
 
 ## Recette
@@ -20,11 +20,11 @@ contre le deuxième (son homologue) et est battu par le troisième. Une partie p
 
 ## Informations
 
-    Auteurs :
+- Auteurs :
+  - Benjamin GAUME      <<benjamin.gaume.pro@gmail.com>>
+  - Nicolas ROUANET     <<rouanet.nicolas.pro@gmail.com>>
 
-    - Benjamin GAUME      <<benjamin.gaume.pro@gmail.com>>
-    - Nicolas ROUANET     <<rouanet.nicolas.pro@gmail.com>>
+- Date : Janvier 2023
 
-    Date : Janvier 2022
+- Version : 1.2
 
-    Version : 1.1
