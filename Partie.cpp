@@ -3,7 +3,7 @@
 #include "Joueur.h"
 #include "Symbole.h"
 #include <string>
-
+#include <iostream>
 #ifdef DEBUG_PARTIE
 #include <iostream>
 #endif
@@ -36,56 +36,45 @@ Partie::~Partie()
 
 void Partie::demarrer()
 {
-#ifdef DEBUG_PARTIE
-    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
-              << " début" << std::endl;
-#endif
-    ihm->afficherChoixSymbole();
-    Symbole choixSymboleJoueur     = ihm->saisirSymbole();
-    Symbole choixSymboleOrdinateur = obtenirSymboleOrdinateur();
-#ifdef DEBUG_PARTIE
-    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
-              << "choixSymboleJoueur = " << choixSymboleJoueur.getSymbole()
-              << " -> " << choixSymboleJoueur.getSymboleToString() << std::endl;
-#endif
-#ifdef DEBUG_PARTIE
-    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
-              << "choixSymboleOrdinateur = "
-              << choixSymboleOrdinateur.getSymbole() << " -> "
-              << choixSymboleOrdinateur.getSymboleToString() << std::endl;
-#endif
-    Partie::ResultatDuel resultatDuel =
-      determinerResultat(choixSymboleJoueur, choixSymboleOrdinateur);
+    numeroManche           = 0;
+    scoreManchesJoueur     = 0;
+    scoreManchesOrdinateur = 0;
+    nbEgalitesManche       = 0;
 
-    // TODO extraire une méthode
-    if(resultatDuel == ResultatDuel::GAGNE)
+    while(numeroManche != getNbManches())
     {
-        ihm->afficherResultat(joueur->getPseudo(),
-                              choixSymboleJoueur,
-                              choixSymboleOrdinateur,
-                              resultatDuel);
-        scoreJoueur += 1;
-    }
-    else if(resultatDuel == ResultatDuel::PERDU)
-    {
-        ihm->afficherResultat("L'ordinateur",
-                              choixSymboleJoueur,
-                              choixSymboleOrdinateur,
-                              resultatDuel);
-        scoreOrdinateur += 1;
-    }
-    else
-    {
-        ihm->afficherResultat("L'ordinateur",
-                              choixSymboleJoueur,
-                              choixSymboleOrdinateur,
-                              resultatDuel);
-        nbEgalites += 1;
-    }
 #ifdef DEBUG_PARTIE
-    std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
-              << " fin" << std::endl;
+        std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+                  << " début" << std::endl;
 #endif
+        ihm->afficherChoixSymbole();
+        Symbole choixSymboleJoueur     = ihm->saisirSymbole();
+        Symbole choixSymboleOrdinateur = obtenirSymboleOrdinateur();
+#ifdef DEBUG_PARTIE
+        std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+                  << "choixSymboleJoueur = " << choixSymboleJoueur.getSymbole()
+                  << " -> " << choixSymboleJoueur.getSymboleToString()
+                  << std::endl;
+#endif
+#ifdef DEBUG_PARTIE
+        std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+                  << "choixSymboleOrdinateur = "
+                  << choixSymboleOrdinateur.getSymbole() << " -> "
+                  << choixSymboleOrdinateur.getSymboleToString() << std::endl;
+#endif
+        Partie::ResultatDuel resultatDuel =
+          determinerResultat(choixSymboleJoueur, choixSymboleOrdinateur);
+        determinerGagnant(resultatDuel,
+                          choixSymboleJoueur,
+                          choixSymboleOrdinateur);
+
+#ifdef DEBUG_PARTIE
+        std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+                  << " fin" << std::endl;
+#endif
+        numeroManche += 1;
+    }
+    determinerNbPartieGagnees();
 }
 
 Symbole Partie::obtenirSymboleOrdinateur()
@@ -152,17 +141,93 @@ Partie::ResultatDuel Partie::determinerResultat(Symbole choixJoueur,
     }
 }
 
-int Partie::getScoreJoueur() const
+void Partie::determinerGagnant(ResultatDuel resultatDuel,
+                               Symbole      choixSymboleJoueur,
+                               Symbole      choixSymboleOrdinateur)
 {
-    return scoreJoueur;
+    if(resultatDuel == ResultatDuel::GAGNE)
+    {
+        ihm->afficherResultat(joueur->getPseudo(),
+                              choixSymboleJoueur,
+                              choixSymboleOrdinateur,
+                              resultatDuel);
+        scoreManchesJoueur += 1;
+    }
+    else if(resultatDuel == ResultatDuel::PERDU)
+    {
+        ihm->afficherResultat("L'ordinateur",
+                              choixSymboleJoueur,
+                              choixSymboleOrdinateur,
+                              resultatDuel);
+        scoreManchesOrdinateur += 1;
+    }
+    else
+    {
+        ihm->afficherResultat("L'ordinateur",
+                              choixSymboleJoueur,
+                              choixSymboleOrdinateur,
+                              resultatDuel);
+        nbEgalitesManche += 1;
+    }
 }
 
-int Partie::getScoreOrdinateur() const
+int Partie::getScoreManchesJoueur() const
 {
-    return scoreOrdinateur;
+    return scoreManchesJoueur;
 }
 
-int Partie::getNbEgalite() const
+int Partie::getScoreManchesOrdinateur() const
 {
-    return nbEgalites;
+    return scoreManchesOrdinateur;
+}
+
+int Partie::getNbEgalitesManches() const
+{
+    return nbEgalitesManche;
+}
+
+int Partie::getScorePartiesJoueur() const
+{
+    return scorePartiesJoueur;
+}
+int Partie::getScorePartiesOrdinateur() const
+{
+    return scorePartiesOrdinateur;
+}
+int Partie::getNbEgalitesParties() const
+{
+    return nbEgalitesParties;
+}
+
+unsigned int Partie::getNbManches()
+{
+    return nbManches;
+}
+
+void Partie::setNbManches(unsigned int nbManches)
+{
+    this->nbManches = nbManches;
+}
+
+int Partie::getNumeroManche()
+{
+    return numeroManche;
+}
+
+void Partie::determinerNbPartieGagnees()
+{
+    if(scoreManchesJoueur > scoreManchesOrdinateur ||
+       scoreManchesJoueur < nbEgalitesManche)
+    {
+        scorePartiesJoueur += 1;
+    }
+    else if(scoreManchesJoueur < scoreManchesOrdinateur ||
+            scoreManchesOrdinateur < nbEgalitesManche)
+    {
+        scorePartiesOrdinateur += 1;
+    }
+    else
+    {
+        nbEgalitesParties += 1;
+    }
 }
