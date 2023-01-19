@@ -3,13 +3,16 @@
 
 #include <string>
 #include "Partie.h"
+#include "Joueur.h"
 
 class Partie;
 class Symbole;
+class Joueur;
 
 class IHM
 {
   private:
+    Joueur* joueur;
     Partie* partie;
 
   public:
@@ -18,16 +21,22 @@ class IHM
 
     void demarrerPartie() const;
     void quitterJeu() const;
+    void afficherRegles() const;
 
     void afficherMenuPrincipal() const;
     void afficherChoixSymbole() const;
     void afficherResultat(std::string          nomJoueurGagnant,
-                          Symbole              choixGagnant,
+                          Symbole              choixJoueur,
+                          Symbole              choixOrdinateur,
                           Partie::ResultatDuel resultat) const;
-    void afficherHistorique(int scoreJoueur, int scoreOrdinateur) const;
+    void afficherHistorique(int scoreJoueur,
+                            int scoreOrdinateur,
+                            int scoreEgalites) const;
 
     std::string saisirPseudo() const;
     Symbole     saisirSymbole() const;
+    void        retournerAuMenu() const;
+    void        effacerEcran() const;
 };
 
 #endif // IHM_H
