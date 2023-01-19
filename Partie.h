@@ -26,6 +26,7 @@ class Partie
     int getScoreJoueur() const;
     int getScoreOrdinateur() const;
     int getNbEgalite() const;
+
     enum ResultatDuel
     {
         INDEFINI,

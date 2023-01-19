@@ -74,7 +74,6 @@ void IHM::afficherMenuPrincipal() const
 
     std::cout << R"(
         Bienvenue sur le Chifoumi !)";
-
     std::cout << "        Version 1.2\n";
 
     std::string pseudo = saisirPseudo();

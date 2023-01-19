@@ -54,7 +54,6 @@ void Partie::demarrer()
               << choixSymboleOrdinateur.getSymbole() << " -> "
               << choixSymboleOrdinateur.getSymboleToString() << std::endl;
 #endif
-
     Partie::ResultatDuel resultatDuel =
       determinerResultat(choixSymboleJoueur, choixSymboleOrdinateur);
 
