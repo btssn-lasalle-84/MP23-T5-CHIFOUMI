@@ -19,7 +19,6 @@ void IHM::demarrerPartie() const
     unsigned int nbManches = saisirNbManches();
     partie->setNbManches(nbManches);
     effacerEcran();
-    partie->mettreAZeroManches();
     partie->demarrer();
     retournerAuMenu();
 }
@@ -83,7 +82,9 @@ void IHM::afficherMenuPrincipal() const
     std::string pseudo = saisirPseudo();
     joueur->setPseudo(pseudo);
 
-    for(;;)
+    bool continuerJeu = true;
+
+    while(continuerJeu = true)
     {
         std::cout << R"(
         [1] Lancer une partie
@@ -119,6 +120,7 @@ void IHM::afficherMenuPrincipal() const
                 break;
             case 4:
                 quitterJeu();
+                continuerJeu = false;
                 break;
         }
     }
