@@ -19,6 +19,7 @@ void IHM::demarrerPartie() const
     unsigned int nbManches = saisirNbManches();
     partie->setNbManches(nbManches);
     effacerEcran();
+    partie->mettreAZeroManches();
     partie->demarrer();
     retournerAuMenu();
 }

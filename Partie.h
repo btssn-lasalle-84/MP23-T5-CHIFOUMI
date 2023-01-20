@@ -58,6 +58,7 @@ class Partie
                                    Symbole      choixSymboleJoueur,
                                    Symbole      choixSymboleOrdinateur);
     void         determinerNbPartieGagnees();
+    void mettreAZeroManches();
 };
 
 #endif // PARTIE_H
