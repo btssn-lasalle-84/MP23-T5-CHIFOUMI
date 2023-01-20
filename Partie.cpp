@@ -36,11 +36,6 @@ Partie::~Partie()
 
 void Partie::demarrer()
 {
-    numeroManche           = 0;
-    scoreManchesJoueur     = 0;
-    scoreManchesOrdinateur = 0;
-    nbEgalitesManche       = 0;
-
     while(numeroManche != getNbManches())
     {
 #ifdef DEBUG_PARTIE
@@ -216,13 +211,11 @@ int Partie::getNumeroManche()
 
 void Partie::determinerNbPartieGagnees()
 {
-    if(scoreManchesJoueur > scoreManchesOrdinateur ||
-       scoreManchesJoueur < nbEgalitesManche)
+    if(scoreManchesJoueur > scoreManchesOrdinateur)
     {
         scorePartiesJoueur += 1;
     }
-    else if(scoreManchesJoueur < scoreManchesOrdinateur ||
-            scoreManchesOrdinateur < nbEgalitesManche)
+    else if(scoreManchesJoueur < scoreManchesOrdinateur)
     {
         scorePartiesOrdinateur += 1;
     }
@@ -230,4 +223,12 @@ void Partie::determinerNbPartieGagnees()
     {
         nbEgalitesParties += 1;
     }
+}
+
+void Partie::mettreAZeroManches()
+{
+    numeroManche           = 0;
+    scoreManchesJoueur     = 0;
+    scoreManchesOrdinateur = 0;
+    nbEgalitesManche       = 0;
 }
