@@ -5,6 +5,8 @@
 #include "Partie.h"
 #include "Joueur.h"
 
+#define NUMERO_VERSION 2.0
+
 class Partie;
 class Symbole;
 class Joueur;
