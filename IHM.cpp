@@ -76,9 +76,9 @@ void IHM::afficherMenuPrincipal() const
         --------------------------------------------------------------
     )" << std::endl;
 
+    std::cout << "        Version : " << NUMERO_VERSION << std::endl;
     std::cout << R"(
         Bienvenue sur le Chifoumi !)";
-    std::cout << "        Version 1.2\n";
 
     std::string pseudo = saisirPseudo();
     joueur->setPseudo(pseudo);

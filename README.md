@@ -26,7 +26,7 @@ Il existe plusieurs versions du Chifoumi mais celle avec la pierre, la feuille e
 
 ## Informations
 
-- Auteurs :git 
+- Auteurs :
   - Benjamin GAUME      <<benjamin.gaume.pro@gmail.com>>
   - Nicolas ROUANET     <<rouanet.nicolas.pro@gmail.com>>
 
