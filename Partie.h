@@ -55,14 +55,14 @@ class Partie
         PERDU
     };
 
-    void         demarrer();
+    void demarrer();
 
-    void         mettreAZeroManches();
-    void         determinerNumeroVariante(int numeroVariante);
-    void         determinerNbPartieGagnees();
+    void mettreAZeroManches();
+    void determinerNumeroVariante(int numeroVariante);
+    void determinerNbPartieGagnees();
 
-    Symbole      obtenirSymboleOrdinateur();
-    Symbole      obtenirSymboleOrdinateurVariante();
+    Symbole obtenirSymboleOrdinateur();
+    Symbole obtenirSymboleOrdinateurVariante();
 
     ResultatDuel determinerResultat(Symbole choixJoueur,
                                     Symbole choixOrdinateur);
@@ -70,8 +70,8 @@ class Partie
                                    Symbole      choixSymboleJoueur,
                                    Symbole      choixSymboleOrdinateur);
 
-    void         jouerVarianteClassique();
-    void         jouerVarianteGalaxie();
+    void jouerVarianteClassique();
+    void jouerVarianteGalaxie();
 };
 
 #endif // PARTIE_H
