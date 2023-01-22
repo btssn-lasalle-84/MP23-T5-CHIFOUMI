@@ -26,7 +26,7 @@ Il est possible de joueur plusieurs manches dans une partie. Le joueur ayant gag
 |Jouer une partie ou plusieurs parties    | X |   |
 |Afficher l’historique des parties jouées | X |   |
 
-|Fonctionnalités - Version 1.0            |Oui|Non|
+|Fonctionnalités - Version 2.0            |Oui|Non|
 |-----------------------------------------|:-:|:-:|
 |Choisir une variante                     | X |   |
 |Jouer une partie en plusieurs manches    | X |   |
