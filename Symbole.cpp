@@ -28,6 +28,10 @@ std::string Symbole::getSymboleToString() const
             break;
         case CISEAUX:
             return "le ciseaux";
+        case GALAXIE:
+            return "la galaxie";
+        case ACARIEN:
+            return "l'acarien";
             break;
     }
     return std::string();

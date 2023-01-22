@@ -15,17 +15,37 @@ class Partie
     IHM*     ihm;
     Joueur*  joueur;
     Symbole* symbole;
-    int      scoreJoueur     = 0;
-    int      scoreOrdinateur = 0;
-    int      nbEgalites       = 0;
+
+    int scoreManchesJoueur     = 0;
+    int scoreManchesOrdinateur = 0;
+    int nbEgalitesManche       = 0;
+
+    int scorePartiesJoueur     = 0;
+    int scorePartiesOrdinateur = 0;
+    int nbEgalitesParties      = 0;
+
+    unsigned int nbManches    = 0;
+    unsigned int numeroManche = 0;
+
+    int numeroVariante = 0;
 
   public:
     Partie(IHM* ihm, Joueur* joueur);
     Partie(Symbole* symbole);
     ~Partie();
-    int getScoreJoueur() const;
-    int getScoreOrdinateur() const;
-    int getNbEgalite() const;
+
+    int getScoreManchesJoueur() const;
+    int getScoreManchesOrdinateur() const;
+    int getNbEgalitesManches() const;
+    int getScorePartiesJoueur() const;
+    int getScorePartiesOrdinateur() const;
+    int getNbEgalitesParties() const;
+    int getNumeroManche() const;
+
+    unsigned int getNbManches() const;
+    void         setNbManches(unsigned int nbManches);
+    int          getNumeroVariante() const;
+    void         setNumeroVariante(int numeroVariante);
 
     enum ResultatDuel
     {
@@ -34,10 +54,24 @@ class Partie
         GAGNE,
         PERDU
     };
-    void         demarrer();
-    Symbole      obtenirSymboleOrdinateur();
+
+    void demarrer();
+
+    void mettreAZeroManches();
+    void determinerNumeroVariante(int numeroVariante);
+    void determinerNbPartieGagnees();
+
+    Symbole obtenirSymboleOrdinateur();
+    Symbole obtenirSymboleOrdinateurVariante();
+
     ResultatDuel determinerResultat(Symbole choixJoueur,
                                     Symbole choixOrdinateur);
+    void         determinerGagnant(ResultatDuel resultatDuel,
+                                   Symbole      choixSymboleJoueur,
+                                   Symbole      choixSymboleOrdinateur);
+
+    void jouerVarianteClassique();
+    void jouerVarianteGalaxie();
 };
 
 #endif // PARTIE_H
