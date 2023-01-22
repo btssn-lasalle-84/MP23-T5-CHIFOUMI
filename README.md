@@ -20,19 +20,28 @@ Il est possible de joueur plusieurs manches dans une partie. Le joueur ayant gag
 
 ## Recette
 
-|Fonctionnalités                          |Oui|Non|
+|Fonctionnalités - Version 1.0            |Oui|Non|
 |-----------------------------------------|:-:|:-:|
 |Saisir le nom du joueur                  | X |   |
 |Jouer une partie ou plusieurs parties    | X |   |
 |Afficher l’historique des parties jouées | X |   |
+
+|Fonctionnalités - Version 1.0            |Oui|Non|
+|-----------------------------------------|:-:|:-:|
 |Choisir une variante                     | X |   |
 |Jouer une partie en plusieurs manches    | X |   |
+
+## Ressources logicielles
+
+- Développement sur Visual Studio Code
+- GitHub
+- Langage utilisé : C++
 
 ## Informations
 
 - Auteurs :
-  - Benjamin GAUME      <<benjamin.gaume.pro@gmail.com>>
-  - Nicolas ROUANET     <<rouanet.nicolas.pro@gmail.com>>
+  - Benjamin GAUME      <benjamin.gaume.pro@gmail.com>
+  - Nicolas ROUANET     <rouanet.nicolas.pro@gmail.com>
 
 - Date : Janvier 2023
 
