@@ -11,7 +11,7 @@ Deux joueurs choisissent simultanément un des trois coups possibles en le symbo
 
 Il existe plusieurs versions du Chifoumi mais celle avec la pierre, la feuille et le ciseau, est la version classique du jeu.
 Dans ce jeu, nous disposons d'une version supplémentaire, qui possède les trois coups de base, avec la galaxie et l'acarien en plus :
-    - La galaxie dématérialise la pierre, la feuille et le ciseau, 
+    - La galaxie dématérialise la pierre, la feuille et le ciseau,
       mais implose à cause de l'acarien
     - L'acarien se fait écraser par la pierre, la feuille, et le ciseau
 

@@ -147,212 +147,29 @@ Symbole Partie::obtenirSymboleOrdinateurVariante()
 Partie::ResultatDuel Partie::determinerResultat(Symbole choixJoueur,
                                                 Symbole choixOrdinateur)
 {
-    if(numeroVariante == 2)
+    switch(choixJoueur.getSymbole())
     {
-        switch(choixJoueur.getSymbole())
-        {
 #ifdef DEBUG_PARTIE
-            std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
-                      << "  Variante 2 PFCGA= " << numeroVariante << std::endl;
+        std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
+                  << "  Variante 2 PFCGA= " << numeroVariante << std::endl;
 #endif
-            case Symbole::SigneMain::PIERRE:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::GALAXIE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::ACARIEN)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                break;
-            case Symbole::SigneMain::FEUILLE:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::GALAXIE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::ACARIEN)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                break;
-            case Symbole::SigneMain::CISEAUX:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::GALAXIE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::ACARIEN)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-
-                break;
-            case Symbole::SigneMain::GALAXIE:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::CISEAUX)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::ACARIEN)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-            case Symbole::SigneMain::ACARIEN:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::CISEAUX)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::GALAXIE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-                break;
-            default:
-#ifdef DEBUG_PARTIE
-                std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__
-                          << "] "
-                          << "choixJoueur = " << choixJoueur.getSymbole()
-                          << " non valide !!!" << std::endl;
-#endif
-                return Partie::ResultatDuel::INDEFINI;
-                break;
-        }
-    }
-    else
-    {
-        switch(choixJoueur.getSymbole())
-        {
-#ifdef DEBUG_PARTIE
-            std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
-                      << "  Variante 1 PFC= " << numeroVariante << std::endl;
-#endif
-            case Symbole::SigneMain::PIERRE:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                break;
-            case Symbole::SigneMain::FEUILLE:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                break;
-            case Symbole::SigneMain::CISEAUX:
-                if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE)
-                {
-                    return Partie::ResultatDuel::PERDU;
-                }
-                else if(choixOrdinateur.getSymbole() ==
-                        Symbole::SigneMain::FEUILLE)
-                {
-                    return Partie::ResultatDuel::GAGNE;
-                }
-                else
-                {
-                    return Partie::ResultatDuel::EGALITE;
-                }
-            default:
-#ifdef DEBUG_PARTIE
-                std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__
-                          << "] "
-                          << "choixJoueur = " << choixJoueur.getSymbole()
-                          << " non valide !!!" << std::endl;
-#endif
-                return Partie::ResultatDuel::INDEFINI;
-                break;
-        }
+        case Symbole::SigneMain::PIERRE:
+            jouerPierre(choixOrdinateur);
+            break;
+        case Symbole::SigneMain::FEUILLE:
+            jouerFeuille(choixOrdinateur);
+            break;
+        case Symbole::SigneMain::CISEAUX:
+            jouerCiseaux(choixOrdinateur);
+            break;
+        case 4:
+            jouerGalaxie(choixOrdinateur);
+        case 5:
+            jouerAcarien(choixOrdinateur);
+            break;
+        default:
+            return Partie::ResultatDuel::INDEFINI;
+            break;
     }
 }
 void Partie::determinerGagnant(ResultatDuel resultatDuel,
@@ -450,11 +267,100 @@ void Partie::jouerVarianteGalaxie()
         determinerGagnant(resultatDuel,
                           choixSymboleJoueur,
                           choixSymboleOrdinateur);
-
 #ifdef DEBUG_PARTIE
         std::cout << "[" << __PRETTY_FUNCTION__ << ":" << __LINE__ << "] "
                   << " fin" << std::endl;
 #endif
         numeroManche += 1;
+    }
+}
+
+Partie::ResultatDuel Partie::jouerPierre(Symbole choixOrdinateur)
+{
+    if(choixOrdinateur.getSymbole() == Symbole::SigneMain::CISEAUX ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::ACARIEN)
+    {
+        return Partie::ResultatDuel::GAGNE;
+    }
+    else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::FEUILLE ||
+            choixOrdinateur.getSymbole() == Symbole::SigneMain::GALAXIE)
+    {
+        return Partie::ResultatDuel::PERDU;
+    }
+    else
+    {
+        return Partie::ResultatDuel::EGALITE;
+    }
+}
+
+Partie::ResultatDuel Partie::jouerCiseaux(Symbole choixOrdinateur)
+{
+    if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::GALAXIE)
+    {
+        return Partie::ResultatDuel::PERDU;
+    }
+    else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::FEUILLE ||
+            choixOrdinateur.getSymbole() == Symbole::SigneMain::ACARIEN)
+    {
+        return Partie::ResultatDuel::GAGNE;
+    }
+    else
+    {
+        return Partie::ResultatDuel::EGALITE;
+    }
+}
+
+Partie::ResultatDuel Partie::jouerFeuille(Symbole choixOrdinateur)
+{
+    if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::ACARIEN)
+    {
+        return Partie::ResultatDuel::GAGNE;
+    }
+    else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::GALAXIE ||
+            choixOrdinateur.getSymbole() == Symbole::SigneMain::CISEAUX)
+    {
+        return Partie::ResultatDuel::PERDU;
+    }
+    else
+    {
+        return Partie::ResultatDuel::EGALITE;
+    }
+}
+
+Partie::ResultatDuel Partie::jouerGalaxie(Symbole choixOrdinateur)
+{
+    if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::FEUILLE ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::CISEAUX)
+    {
+        return Partie::ResultatDuel::GAGNE;
+    }
+    else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::GALAXIE)
+    {
+        return Partie::ResultatDuel::EGALITE;
+    }
+    else
+    {
+        return Partie::ResultatDuel::PERDU;
+    }
+}
+
+Partie::ResultatDuel Partie::jouerAcarien(Symbole choixOrdinateur)
+{
+    if(choixOrdinateur.getSymbole() == Symbole::SigneMain::PIERRE ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::FEUILLE ||
+       choixOrdinateur.getSymbole() == Symbole::SigneMain::CISEAUX)
+    {
+        return Partie::ResultatDuel::PERDU;
+    }
+    else if(choixOrdinateur.getSymbole() == Symbole::SigneMain::GALAXIE)
+    {
+        return Partie::ResultatDuel::GAGNE;
+    }
+    else
+    {
+        return Partie::ResultatDuel::EGALITE;
     }
 }

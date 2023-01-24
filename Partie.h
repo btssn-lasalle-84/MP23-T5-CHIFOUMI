@@ -3,7 +3,7 @@
 
 #include <string>
 
-//#define DEBUG_PARTIE
+#define DEBUG_PARTIE
 
 class IHM;
 class Joueur;
@@ -72,6 +72,12 @@ class Partie
 
     void jouerVarianteClassique();
     void jouerVarianteGalaxie();
+
+    ResultatDuel jouerPierre(Symbole choixOrdinateur);
+    ResultatDuel jouerCiseaux(Symbole choixOrdinateur);
+    ResultatDuel jouerFeuille(Symbole choixOrdinateur);
+    ResultatDuel jouerAcarien(Symbole choixOrdinateur);
+    ResultatDuel jouerGalaxie(Symbole choixOrdinateur);
 };
 
 #endif // PARTIE_H
