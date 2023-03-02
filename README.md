@@ -1,6 +1,6 @@
 [![C/C++ make](https://github.com/btssn-lasalle84/MP23-T5/actions/workflows/c-cpp.yml/badge.svg?branch=develop)](https://github.com/btssn-lasalle84/MP23-T5/actions/workflows/c-cpp.yml) [![C/C++ format](https://github.com/btssn-lasalle84/MP23-T5/actions/workflows/cppformat.yml/badge.svg?branch=develop)](https://github.com/btssn-lasalle84/MP23-T5/actions/workflows/cppformat.yml)
 
-# MP23-T5 Chifoumi
+# Mini-projet : Chifoumi
 
 ## Présentation
 
@@ -17,6 +17,30 @@ Dans ce jeu, nous disposons d'une version supplémentaire, qui possède les troi
 
 Ainsi, (pour la version classique) chaque coup bat un autre coup, fait match nul contre le deuxième (son homologue) et est battu par le troisième.
 Il est possible de joueur plusieurs manches dans une partie. Le joueur ayant gagné le plus de manches gagne la partie.
+
+---
+
+> Ceci est un mini-projet de 2 étudiants de BTS SN option Informatique & Réseaux développé en C++. L'objectif était la mise en oeuvre d'une méthode agile [Kanban](https://fr.wikipedia.org/wiki/Kanban_(d%C3%A9veloppement)) avec les outils **Jira / Github** et en appliquant le _workflow_ [Gitflow](https://btssn-lasalle84.github.io/guides-developpement-logiciel/jira.html#ancre-gitflow). L'application devait être limitée à une interface en ligne de commande (console).
+
+---
+
+## Jira
+
+Intégration avec Github :
+
+![](images/mp23-t5-jira-code.png)
+
+### Les versions
+
+![](images/mp23-t5-jira-versions.png)
+
+### Feuille de route
+
+![](images/mp23-t5-jira-roadmap.png)
+
+### Tickets
+
+![](images/mp23-t5-jira-tickets.png)
 
 ## Recette
 
@@ -37,12 +61,10 @@ Il est possible de joueur plusieurs manches dans une partie. Le joueur ayant gag
 - GitHub
 - Langage utilisé : C++
 
-## Informations
+## Auteurs
 
-- Auteurs :
-  - Benjamin GAUME      <benjamin.gaume.pro@gmail.com>
-  - Nicolas ROUANET     <rouanet.nicolas.pro@gmail.com>
+- Benjamin GAUME      <benjamin.gaume.pro@gmail.com>
+- Nicolas ROUANET     <rouanet.nicolas.pro@gmail.com>
 
-- Date : Janvier 2023
-
-- Version : 2.0
+---
+©️ BTS SNIR LaSalle Avignon 2023
